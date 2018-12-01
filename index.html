@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>彼塔社区</title>
+    <link type="image/x-icon" rel="icon" href="../img/favicon.png">
+    <link rel="icon" sizes="any" mask href="../img/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <!-- header start -->
+    <div class="header">
+
+        <div class="container nav-container clearfix">
+
+            <a href="index.html" class="logo"></a>
+
+            <ul class="pull-left nav-list clearfix">
+                <li class="nav-item">
+                    <a href="index.html" class="active">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="communicate.html">交流</a>
+                </li>
+                <li class="nav-item">
+                    <a href="aimarket.html">AI集市</a>
+                </li>
+                <li class="nav-item">
+                    <a href="activity.html">活动</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tag.html">标签</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="javascript:;">更多</a>
+                </li> -->
+            </ul>
+
+            <div class="pull-right login-wrap">
+                <div class="pull-left search-form">
+                    <input class="pull-left search-input" type="text" value="" maxlength="10" placeholder="搜索想要的内容"><button type="button" class="pull-right search-btn"></button>
+                </div>
+
+                <!-- 登录前 start -->
+                <div class="pull-right login-before hide">
+                    <a id="link-login" href="javascript:;">登录</a>
+                    <span class="interval">|</span>
+                    <a id="link-registe" class="active" href="javascript:;">注册</a>
+                </div>
+                <!-- 登录前 end -->
+
+                <!-- 登录后 start -->
+                <ul class="pull-right login-after hide">
+                    <li class="user">
+                        <a id="link-user" href="javascript:;">
+                            <img src="../img/avatar.png" alt="" class="avatar">
+                        </a>
+                        <ul class="quick-list">
+                            <li>
+                                <a id="link-user2" href="javascript:;">个人主页</a>
+                            </li>
+                            <li>
+                                <a href="edit-userinfo.html">个人资料修改</a>
+                            </li>
+                            <li>
+                                <a href="cost-center.html">费用中心</a>
+                            </li>
+                            <li>
+                                <a id="login-out" class="login-out" href="javascript:;">退出</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="notice">
+                        <a id="link-notice" href="javascript:;">
+                            <i class="icon icon-notice"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 登录后 end -->
+
+            </div>
+
+        </div>
+
+        <div class="container tag-container">
+            <div class="nav-tag">
+                <a href="tag.html">全部</a>
+                <span id="tag-list-top" class="tag-list ell">
+                    <!-- <a href="javascript:;">自然语言处理</a> -->
+                </span>
+                <a class="more" href="tag.html">更多热门标签&gt;&gt;</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- header end -->
+
+    <div class="container main-container clearfix">
+
+        <div class="main">
+
+            <div class="mod-box publish-bar clearfix">
+                <img id="link-headimage" src="../img/avatar.png" alt="" class="avatar">
+                <a id="btn-write" class="publish-link" href="javascript:;">
+                    <i class="icon icon-add"></i>写文章
+                </a>
+                <a id="btn-question" class="publish-link" href="javascript:;">
+                    <i class="icon icon-ask"></i>提问题
+                </a>
+            </div>
+
+            <div id="index-tabs" class="mod-box main-tabs">
+                <ul class="tab-hd clearfix">
+                    <li class="tab-item active">
+                        <a href="javascript:;" data-type="1">最新</a>|
+                    </li>
+                    <li class="tab-item">
+                        <a href="javascript:;" data-type="2">热门</a>|
+                    </li>
+                    <li class="tab-item">
+                        <a href="javascript:;" data-type="3">推荐</a>
+                    </li>
+                </ul>
+                <div class="tab-bd">
+                    <div id="tab-1" class="hide main-cont">
+                        <ul class="main-list">
+                            <!-- <li class="item">
+                                <a class="title ell" href="javascript:;">人工智能翻译首次亮相博鳌亚洲论坛年会</a>
+                                <div class="author-list">
+                                    <span class="tag-list">
+                                        <a href="javascript:;">算法</a>
+                                        <a href="javascript:;">Gauss-Seidel</a>
+                                    </span>
+                                    <a class="nickname" href="javascript:;">codesseby</a>
+                                    <span class="time">1小时前</span>
+                                </div>
+                                <div class="meta-list">
+                                    <i class="icon icon-collection" title="收藏"></i><em>22</em>
+                                    <i class="icon icon-comments" title="评论"></i><em>22</em>
+                                    <i class="icon icon-like" title="点赞"></i><em>22</em>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div id="tab-2" class="hide main-cont">
+                        <ul class="main-list"></ul>
+                    </div>
+                    <div id="tab-3" class="hide main-cont">
+                        <ul class="main-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <script id="articleTpl-index" type="text/html">
+            {{if result.articleList.length}}
+            {{each result.articleList as item i}}
+                <li class="item">
+                    {{if item.article}}
+                    <a class="title" href="article-detail.html?articleId={{item.article.id}}">{{item.article.title}}</a>
+                    {{/if}}
+                    <div class="author-list">
+                        {{if item.labelList && item.labelList.length}}
+                        <span class="tag-list">
+                            {{each item.labelList as tagItem}}
+                            <a href="tag-detail.html?tagId={{tagItem.labelId}}">{{tagItem.name}}</a>
+                            {{/each}}
+                        </span>
+                        {{/if}}
+                        {{if item.article && item.article.userArticle}}
+                        <a class="nickname" href="usercenter.html?userId={{item.article.userArticle.userId}}">{{item.article.userArticle.username}}</a>
+                        {{/if}}
+                        {{if item.article}}
+                        <span class="time">{{item.article.publishTime}}</span>
+                        {{/if}}
+                    </div>
+                    <div class="meta-list">
+                        {{if item.article}}
+                        <i class="icon icon-collection" title="收藏"></i><em>{{item.article.collectionNumber}}</em>
+                        <i class="icon icon-comments" title="评论"></i><em>{{item.article.reviewNumber}}</em>
+                        <i class="icon icon-like" title="点赞"></i><em>{{item.article.praiseNumber}}</em>
+                        {{/if}}
+                    </div>
+                </li>
+            {{/each}}
+            {{/if}}
+            </script>
+
+            <div class="loading-more clearfix">加载更多...</div>
+            <div class="loading-more-no hide clearfix">我是有底线的</div>
+
+        </div>
+
+        <!-- side start -->
+        <div class="side">
+
+            <div class="mod-box img-ad">
+                <a href="activity/gpu/index.html" target="_blank">
+                    <img src="../img/img-leinao.png" alt="">
+                    <ul class="data-total">
+                        <li>
+                            <span class="font28" id="gpuTotal">0</span>
+                            <span class="txt font20">GPU</span>
+                        </li>
+                        <li>
+                            <span class="font28" id="taskTotal">0</span>
+                            <span class="txt font20">任务数</span>
+                        </li>
+                        <li>
+                            <span class="font28" id="dataSetTotal">0</span>
+                            <span class="txt font20">数据集</span>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+            <div class="mod-box active-box">
+                <h2 class="active-title">正在进行的活动</h2>
+                <div class="active-slider-wrap" id="scroll-wrap">
+                    <ul class="slider-list clearfix">
+                        <!-- <li class="slider-item">
+                            <a href="javascript:;" class="active-img">
+                                <img src="../img/active-img.png" alt="">
+                            </a>
+                            <a href="javascript:;" class="active-name">ChinaMM2018图像识别算法大赛</a>
+                            <div class="active-info">
+                                <span class="city">合肥</span>
+                                <span class="addr">中科大</span>
+                                <span class="date">01.02</span>
+                                <span class="state">报名中</span>
+                            </div>
+                        </li> -->
+                    </ul>
+                    <script id="activityTpl-index" type="text/html">
+                    {{each result as item i}}
+                        <li class="slider-item">
+                            <a href="activity-detail.html?activityId={{item.id}}" class="active-img">
+                                <img src="{{item.image}}" alt="">
+                            </a>
+                            <a href="activity-detail.html?activityId={{item.id}}" class="active-name ell">{{item.title}}</a>
+                            <div class="active-info ell">
+                                <span class="city">{{item.city}}</span>
+                                <!-- <span class="addr">{{item.address}}</span> -->
+                                <span class="date">{{item.time}}</span>
+                                <span class="state">{{item.description}}</span>
+                            </div>
+                        </li>
+                    {{/each}}
+                    </script>
+                </div>
+            </div>
+
+            <div id="ask-box" class="mod-box side-box">
+                <h2 class="side-title">大家都在问
+                    <!-- <a class="link-refresh" href="javascript:;"><i class="icon icon-refresh"></i>换一换</a> -->
+                </h2>
+                <ul class="side-list ask-list">
+                    <!-- <li class="item clearfix">
+                        <span class="num">
+                            <i class="icon icon-reply"></i><em>223</em> 回复
+                        </span>
+                        <a href="javascript:;">课程讨论 · 基于Caffe的FasterRCNN算法 原理与实现</a>
+                    </li> -->
+                </ul>
+                <script id="askTopTpl-index" type="text/html">
+                {{each result as item i}}
+                    <li class="item clearfix">
+                        <span class="num">
+                            <i class="icon icon-reply"></i><em>{{item.replyNum}}</em> 回复
+                        </span>
+                        <a href="communicate-detail.html?problemId={{item.problemId}}">{{item.title}}</a>
+                    </li>
+                {{/each}}
+                </script>
+            </div>
+
+            <div class="mod-box side-box">
+                <h2 class="side-title">活跃用户</h2>
+                <ul id="users-list" class="side-list users-list">
+                    <!-- <li class="item clearfix">
+                        <a href="javascript:;" class="avatar">
+                            <img src="../img/avatar.png" alt="">
+                        </a>
+                        <div class="time">3分钟前</div>
+                        <div class="cont">
+                            <a href="javascript:;" class="nickname">Zuzanna Wiler</a>
+                            <p>说真的，认真起来我自己都怕</p>
+                        </div>
+                    </li> -->
+                </ul>
+                <script id="activeUserTopTpl-index" type="text/html">
+                {{each result as item i}}
+                    <li class="item clearfix">
+                        <a href="usercenter.html?userId={{item.id}}" class="avatar">
+                            <img src="{{item.head_image}}" alt="">
+                        </a>
+                        <div class="time">{{item.active_time}}</div>
+                        <div class="cont">
+                            <a href="usercenter.html?userId={{item.id}}" class="nickname">{{item.username}}</a>
+                            <p class="ell">{{item.description}}</p>
+                        </div>
+                    </li>
+                {{/each}}
+                </script>
+            </div>
+
+        </div>
+        <!-- side end -->
+
+    </div>
+
+    <!-- footer start -->
+    <div class="footer">
+        <div class="container copyright-text">
+            &copy; 彼塔社区<span class="interval">|</span>bitahub.com<span class="interval">|</span>皖ICP备18012113号-1
+        </div>
+    </div>
+    <!-- footer end -->
+
+    <a id="back-to-top" href="javascript:;" title="返回顶部"></a>
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/jquery.cookie.min.js"></script>
+    <script src="../lib/jquery.placeholder.min.js"></script>
+    <script src="../lib/layer/layer.js"></script>
+    <script src="../lib/template.js"></script>
+    <script src="../lib/tabs.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
